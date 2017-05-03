@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{%block content %}
+<h1>Clickbait News Service</h1>
+<h2>{{ news.source }}</h2>
+
+{% for article in news.articles%}
+<div>
+  <p>
+    {{ article.title }} is {% if article.clickbait %}clickbait!{% else %}not clickbait.{% endif %}
+  </p>
+</div>
+{% endfor %}
+{% endblock %}
