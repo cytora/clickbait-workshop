@@ -2,8 +2,7 @@ import json, requests, pickle, os
 from flask import Flask, render_template
 app = Flask(__name__)
 
-text = "literally just hilarious pics of dogs"
-API_KEY = os.environ['APIKEY'] # get yours at https://newsapi.org
+API_KEY = os.environ['NEWS_API_KEY'] # get yours at https://newsapi.org
 NEWS_SOURCE='daily-mail'
 
 
@@ -34,12 +33,3 @@ def news_articles():
         return news
     else:
         return None
-
-# @app.route('/clickbait-label/v1', methods=['POST'])
-# def clickbait_label():
-#     if not request.json or 'text' not in request.json:
-#         abort(400)
-#     CLASSIFIER_DIR = "../classifiers/clickbait_svc_v1"
-#     with open(CLASSIFIER_DIR, 'rb') as f:
-#         classifier = pickle.load(f)
-#     return classifier.predict([request['text']])[0]
