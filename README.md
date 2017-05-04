@@ -13,6 +13,7 @@ Now we create a new conda environment from the environment file that contains th
 ```
 $ conda env create -f environment.yml
 $ source activate textml
+$ python tests/test.py
 ```
 
 ## Getting started
