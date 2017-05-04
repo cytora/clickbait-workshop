@@ -6,14 +6,12 @@ text learning pipeline. The aim of the workshop is to build all
 ## Installation
 
 The easiest way to get python and the necessary packages is with
-conda:
-```
-$ sh install_miniconda.sh
-```
+conda. [Go here](conda.io/docs/download.html) for installation instructions. Be
+sure to get the python 3 versions.
 
-Now we create a new conda environment and activate it
+Now we create a new conda environment from the environment file that contains the dependencies
 ```
-$ conda create -n textml python=3 pandas matplotlib scikit-learn flask jupyter
+$ conda env create -f environment.yml
 $ source activate textml
 ```
 
