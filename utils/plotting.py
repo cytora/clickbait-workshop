@@ -1,6 +1,12 @@
 import matplotlib.pyplot as plt
 import numpy as np
 import itertools
+from sklearn.metrics import accuracy_score, confusion_matrix
+
+def print_accuracy(accuracy):
+    print("Accuracy = {:.1f}%".format(
+        accuracy * 100.0
+    ))
 
 def plot_2d_samples(samples, labels):
     plt.scatter(
@@ -62,3 +68,12 @@ def plot_confusion_matrix(cm, classes,
     plt.tight_layout()
     plt.ylabel('True label')
     plt.xlabel('Predicted label')
+
+def pipeline_performance(training_labels, predicted_labels, classes=[0,1]):
+
+    accuracy = accuracy_score(training_labels, predicted_labels)
+    cm = confusion_matrix(training_labels, predicted_labels)
+
+    # print the results
+    print_accuracy(accuracy)
+    plot_confusion_matrix(cm, classes)
