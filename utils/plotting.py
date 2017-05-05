@@ -77,3 +77,14 @@ def pipeline_performance(training_labels, predicted_labels, classes=[0,1]):
     # print the results
     print_accuracy(accuracy)
     plot_confusion_matrix(cm, classes)
+
+def print_top_features(pipeline, vectorizer_name='vectorizer', classifier_name='classifier', n_features=7):
+    vocabulary = np.array(pipeline.named_steps[vectorizer_name].get_feature_names())
+    coefs = pipeline.named_steps[classifier_name].coef_[0]
+    top_feature_idx = np.argsort(coefs)
+    top_features = vocabulary[top_feature_idx]
+    print("Top clickbait features:")
+    print(top_features[-n_features:])
+    print("---")
+    print("Top news features:")
+    print(top_features[:n_features])
